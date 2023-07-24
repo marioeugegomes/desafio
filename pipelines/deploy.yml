@@ -1,0 +1,117 @@
+trigger: none
+
+resources:
+  pipelines:
+    - pipeline: PocCliente-back-build
+      source: PocCliente\PocCliente-back-build
+      trigger: true
+
+  repositories:
+    - repository: APIM
+      type: git
+      name: Serviços Base/_git/API-Gateway-DevOps
+      ref: 'refs/heads/master'
+
+parameters:
+- name: AliasAssinatura
+  displayName: 'Alias da assinatura'
+  type: string
+  default: 'GVdasa'
+  values:
+    - GVdasa
+
+variables:
+  - template: config.yml
+  - group: GvReport-Api-${{ variables.Ambiente }}-${{ parameters.AliasAssinatura }}
+  - group: Terraform
+  - group: 'apim-gateway-${{ variables.Ambiente }}' # grupo com infos sobre o gateway
+  - name: AliasAssinaturaParaTFState
+    ${{ if eq(parameters.AliasAssinatura, 'GVdasa') }}:
+      value: ""
+    ${{ else }}:
+      value: "${{ lower(parameters.AliasAssinatura) }}"
+
+pool: DOCKER-SB
+
+stages:
+  - stage: "Print_Vars"
+    displayName: "Print variables"
+    jobs:
+      - job: "PrintVariables"
+        steps:
+          - bash: |
+              echo Ambiente: "${{ variables.Ambiente }}"
+            displayName: "Print variables"
+
+  - stage: "Deploy_infra"
+    displayName: "Deploy infra"
+    jobs:
+      - job: "Terraform"
+        displayName: "Terraform"
+        steps:
+          - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
+            displayName: "Terraform install"
+            inputs:
+              terraformVersion: 1.0.6
+
+          - task: TerraformCLI@0
+            displayName: "Terraform init"
+            inputs:
+              command: "init"
+              workingDirectory: '$(System.DefaultWorkingDirectory)/pipelines/terraform'
+              commandOptions: '-backend-config="access_key=$(TerraformAccessKey)" -backend-config="key=$(Ambiente)/$(NomeAplicacao)api$(AliasAssinaturaParaTFState).tfstate"'
+
+          - task: TerraformCLI@0
+            displayName: "Terraform apply"
+            inputs:
+              command: 'apply'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/pipelines/terraform'
+              environmentServiceName: $(ServiceConnection)
+              allowTelemetryCollection: false
+              commandOptions: '-input=false -var "aplicacao=$(NomeAplicacao)" -var "ambiente=$(Ambiente)" -var "aliasAssinatura=${{ parameters.AliasAssinatura }}"'
+
+          - task: TerraformCLI@0
+            displayName: 'Output das variáveis tf'
+            inputs:
+              command: 'output'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/pipelines/terraform'
+              allowTelemetryCollection: false
+
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              artifact: '${{ variables.ArtifactName }}'
+              pipeline: GvReport-back-build #pipeline: # Required when source == Specific
+              path: $(Pipeline.Workspace)
+              source: "specific"
+              project: $(System.TeamProject) # Required when source == Specific
+              runVersion: "latest" # Required when source == Specific# Options: latest, latestFromBranch, specific
+
+          - bash: |
+              echo "##vso[task.setvariable variable=Mensageria.ServiceBusConnectionString]$(SbusConnString)"
+            displayName: Sobrescreve o appsettings
+
+          - task: AzureRmWebAppDeployment@4
+            displayName: "Deploy Azure App Service"
+            inputs:
+              azureSubscription: $(ServiceConnection)
+              WebAppName: '$(TF_OUT_WEB-APP-NAME)'
+              JSONFiles: '**/appsettings.json'
+              packageForLinux: "$(Pipeline.Workspace)/**/*.zip"
+
+  - stage: "AtualizarAPINoGateway"
+    displayName: "Atualizar definição de API no Gateway"
+    jobs:
+    - job: AtualizarAPINoGateway
+      displayName: "Atualizar API no Gateway"
+      pool:
+        vmImage: Ubuntu-Latest
+      steps:
+        - powershell: |
+            Start-Sleep -Seconds 10
+        - template: ./ImportarApi.yml@APIM
+          parameters:
+            ApiId: 'gvreport' # Identificador da API (usar kebab-case)
+            ApiSufixoUrl: 'gvreport' # sufixo na url. Ex: api.gvdasa.com.br/valorSufixo
+            ApiDisplayName: 'gvreport' # Nome da API (contendo espaços ou qualquer carácter desejado)
+            SwaggerUrl: 'https://PocCliente-${{ variables.Ambiente }}-wa.azurewebsites.net/swagger/v1/swagger.json' # url para json do swagger (não da interface)
+            ServiceUrl: 'https://PocCliente-${{ variables.Ambiente }}-wa.azurewebsites.net'

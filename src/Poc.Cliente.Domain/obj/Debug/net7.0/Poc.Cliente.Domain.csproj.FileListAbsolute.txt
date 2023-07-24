@@ -1,0 +1,12 @@
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/obj/Debug/net7.0/Poc.Cliente.Domain.csproj.AssemblyReference.cache
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/obj/Debug/net7.0/Poc.Cliente.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/obj/Debug/net7.0/Poc.Cliente.Domain.AssemblyInfoInputs.cache
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/obj/Debug/net7.0/Poc.Cliente.Domain.AssemblyInfo.cs
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/obj/Debug/net7.0/Poc.Cliente.Domain.csproj.CoreCompileInputs.cache
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/bin/Debug/net7.0/Poc.Cliente.Domain.deps.json
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/bin/Debug/net7.0/Poc.Cliente.Domain.dll
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/bin/Debug/net7.0/Poc.Cliente.Domain.pdb
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/obj/Debug/net7.0/Poc.Cliente.Domain.dll
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/obj/Debug/net7.0/refint/Poc.Cliente.Domain.dll
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/obj/Debug/net7.0/Poc.Cliente.Domain.pdb
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/obj/Debug/net7.0/ref/Poc.Cliente.Domain.dll

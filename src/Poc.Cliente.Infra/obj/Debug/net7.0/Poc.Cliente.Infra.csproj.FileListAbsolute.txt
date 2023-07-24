@@ -1,0 +1,15 @@
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Infra/obj/Debug/net7.0/Poc.Cliente.Infra.csproj.AssemblyReference.cache
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Infra/obj/Debug/net7.0/Poc.Cliente.Infra.GeneratedMSBuildEditorConfig.editorconfig
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Infra/obj/Debug/net7.0/Poc.Cliente.Infra.AssemblyInfoInputs.cache
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Infra/obj/Debug/net7.0/Poc.Cliente.Infra.AssemblyInfo.cs
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Infra/obj/Debug/net7.0/Poc.Cliente.Infra.csproj.CoreCompileInputs.cache
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Infra/bin/Debug/net7.0/Poc.Cliente.Infra.deps.json
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Infra/bin/Debug/net7.0/Poc.Cliente.Infra.dll
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Infra/bin/Debug/net7.0/Poc.Cliente.Infra.pdb
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Infra/bin/Debug/net7.0/Poc.Cliente.Domain.dll
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Infra/bin/Debug/net7.0/Poc.Cliente.Domain.pdb
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Infra/obj/Debug/net7.0/Poc.Cliente.Infra.csproj.CopyComplete
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Infra/obj/Debug/net7.0/Poc.Cliente.Infra.dll
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Infra/obj/Debug/net7.0/refint/Poc.Cliente.Infra.dll
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Infra/obj/Debug/net7.0/Poc.Cliente.Infra.pdb
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Infra/obj/Debug/net7.0/ref/Poc.Cliente.Infra.dll

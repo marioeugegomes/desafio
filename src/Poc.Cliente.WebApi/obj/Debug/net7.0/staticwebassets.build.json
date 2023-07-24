@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "pNDxE0Wz5hl0OZ009VF5zO+hoh4vSeWvKPi3yH6yH7s=",
+  "Source": "Poc.Cliente.WebApi",
+  "BasePath": "_content/Poc.Cliente.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

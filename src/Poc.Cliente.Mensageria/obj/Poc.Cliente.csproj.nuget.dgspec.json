@@ -1,0 +1,92 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Mensageria/Poc.Cliente.csproj": {}
+  },
+  "projects": {
+    "/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Mensageria/Poc.Cliente.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Mensageria/Poc.Cliente.csproj",
+        "projectName": "Poc.Cliente",
+        "projectPath": "/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Mensageria/Poc.Cliente.csproj",
+        "packagesPath": "/home/mario/.nuget/packages/",
+        "outputPath": "/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Mensageria/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/mario/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Azure.Messaging.ServiceBus": {
+              "target": "Package",
+              "version": "[7.7.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.Azure.ServiceBus": {
+              "target": "Package",
+              "version": "[5.2.0, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.113/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

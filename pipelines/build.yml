@@ -1,0 +1,101 @@
+trigger:
+  branches:
+    include:
+      - develop
+      - release/homolog
+      - master
+  paths:
+    include:
+      - src
+    exclude:
+    - 'wiki/*'
+    - 'pipelines/*'
+
+variables:
+  - template: config.yml
+
+parameters:
+  - name: BUILD_CONFIGURATION
+    default: Release
+    values:
+    - Release
+    - Debug
+    displayName: Configuração de compilação
+
+pool: DOCKER-SB
+
+stages:
+  - stage: 'Build_PocCliente'
+    displayName: 'Build PocCliente'
+    variables:
+      BUILD_CONFIGURATION: 'Release'
+    jobs:
+    - job: 'Build'
+      displayName: 'Build'
+      steps:
+
+        - task: gittools.gittools.setup-gitversion-task.gitversion/setup@0
+          displayName: gitversion/setup
+          inputs:
+            versionSpec: 5.10.1
+
+        - checkout: self
+          persistCredentials: true
+
+        - task: CmdLine@2
+          inputs:
+            script: 'git fetch --unshallow --update-shallow'
+
+        - task: gittools.gittools.execute-gitversion-task.gitversion/execute@0
+          displayName: gitversion/execute
+          env:
+            BUILD_NUMBER: $(Build.BuildId)
+          inputs:
+            targetPath: '$(System.DefaultWorkingDirectory)'
+            additionalArguments: /updateprojectfiles
+
+        - task: UpdateBuildNumber@0
+          inputs:
+            buildNumber: '$(GitVersion.AssemblySemFileVer)'
+
+        #- template: Steps - UpdateBuildVersion.yml
+        - task: NuGetToolInstaller@1
+          displayName: 'Instalar Nuget'
+
+        - task: UseDotNet@2
+          displayName: 'Install .NET Core SDK'
+          inputs:
+            version: 7.x
+            performMultiLevelLookup: true
+            includePreviewVersions: true # Required for preview versions
+        - task: DotNetCoreCLI@2
+          displayName: Restore
+          inputs:
+            command: restore
+            projects: 'src/**/*.csproj'
+
+        - task: DotNetCoreCLI@2
+          displayName: Build
+          inputs:
+            projects: 'src/**/*.csproj'
+            arguments: '--configuration $(BUILD_CONFIGURATION)'
+
+        - task: DotNetCoreCLI@2
+          displayName: 'Run testes unitários - $(BUILD_CONFIGURATION)'
+          inputs:
+            command: 'test'
+            arguments: '--no-build --configuration $(BUILD_CONFIGURATION)'
+            publishTestResults: true
+            projects: '**/*.UnitTests.csproj'
+
+        - task: DotNetCoreCLI@2
+          displayName: Publish
+          inputs:
+            command: publish
+            publishWebProjects: True
+            arguments: '--configuration $(BUILD_CONFIGURATION) --output $(build.artifactstagingdirectory)'
+            zipAfterPublish: True
+
+        - publish: $(Build.ArtifactStagingDirectory)
+          artifact: '${{ variables.ArtifactName }}'
+          condition: succeeded()

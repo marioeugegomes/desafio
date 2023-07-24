@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Poc.Cliente.WebApi.props" />
+</Project>
