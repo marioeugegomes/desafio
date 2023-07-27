@@ -9,7 +9,7 @@ namespace Poc.Cliente.Mensageria.Entities
     {
         [Required]
         [JsonProperty(PropertyName = "document")]
-        public integer document { get; set; }
+        public int document { get; set; }
 
         [Required]
         [JsonProperty(PropertyName = "type_transaction")]
@@ -25,7 +25,7 @@ namespace Poc.Cliente.Mensageria.Entities
 
         [Required]
         [JsonProperty(PropertyName = "date")]
-        public datetime date { get; set; }
+        public string date { get; set; }
 
     }
 }

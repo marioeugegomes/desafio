@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "t1oCluKUON2GIf1Morlaooq0ZdPmgMtdWNaD4LSa+zAotZKt63LePczj9LOKARYNwP/+vPkbRlAFbS7d0yLHng==",
+  "dgSpecHash": "8jsMX8tfmxb3g5O8ZY8c57MbA2oL95fABzw/KFxs6OVHv830eSWvqI+bDJD8PjqwHL7oVVWRo7UedDYYGqyl3Q==",
   "success": true,
-  "projectFilePath": "/home/mario/Projects/POC/desafio/src/Poc.Cliente.Domain/Poc.Cliente.Domain.csproj",
+  "projectFilePath": "/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/Poc.Cliente.Domain.csproj",
   "expectedPackageFiles": [
     "/home/mario/.nuget/packages/awssdk.core/3.7.100.14/awssdk.core.3.7.100.14.nupkg.sha512",
     "/home/mario/.nuget/packages/awssdk.securitytoken/3.7.100.14/awssdk.securitytoken.3.7.100.14.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/mario/Projects/POC/desafio/src/Poc.Cliente.Domain/Poc.Cliente.Domain.csproj": {}
+    "/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/Poc.Cliente.Domain.csproj": {}
   },
   "projects": {
-    "/home/mario/Projects/POC/desafio/src/Poc.Cliente.Domain/Poc.Cliente.Domain.csproj": {
+    "/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/Poc.Cliente.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/mario/Projects/POC/desafio/src/Poc.Cliente.Domain/Poc.Cliente.Domain.csproj",
+        "projectUniqueName": "/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/Poc.Cliente.Domain.csproj",
         "projectName": "Poc.Cliente.Domain",
-        "projectPath": "/home/mario/Projects/POC/desafio/src/Poc.Cliente.Domain/Poc.Cliente.Domain.csproj",
+        "projectPath": "/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/Poc.Cliente.Domain.csproj",
         "packagesPath": "/home/mario/.nuget/packages/",
-        "outputPath": "/home/mario/Projects/POC/desafio/src/Poc.Cliente.Domain/obj/",
+        "outputPath": "/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/mario/.nuget/NuGet/NuGet.Config"

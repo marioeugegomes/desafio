@@ -20,6 +20,5 @@
   <ItemGroup>
     <ProjectReference Include="..\Poc.Cliente.Domain\Poc.Cliente.Domain.csproj" />
     <ProjectReference Include="..\Poc.Cliente.Infra\Poc.Cliente.Infra.csproj" />
-    <ProjectReference Include="..\Poc.Cliente.Infra\Poc.Cliente.Mensageria.csproj" />
   </ItemGroup>
 </Project>

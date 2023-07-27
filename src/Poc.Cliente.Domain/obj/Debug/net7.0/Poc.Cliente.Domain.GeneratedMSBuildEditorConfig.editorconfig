@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Poc.Cliente.Domain
-build_property.ProjectDir = /home/mario/Projects/POC/desafio/src/Poc.Cliente.Domain/
+build_property.ProjectDir = /home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Domain/
