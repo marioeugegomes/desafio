@@ -1,0 +1,7 @@
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Publish/obj/Debug/net7.0/Poc.Cliente.Publish.csproj.AssemblyReference.cache
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Publish/obj/Debug/net7.0/Poc.Cliente.Publish.GeneratedMSBuildEditorConfig.editorconfig
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Publish/obj/Debug/net7.0/Poc.Cliente.Publish.AssemblyInfoInputs.cache
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Publish/obj/Debug/net7.0/Poc.Cliente.Publish.AssemblyInfo.cs
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Publish/obj/Debug/net7.0/Poc.Cliente.Publish.csproj.CoreCompileInputs.cache
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Publish/obj/Debug/net7.0/Poc.Cliente.Publish.MvcApplicationPartsAssemblyInfo.cs
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Publish/obj/Debug/net7.0/Poc.Cliente.Publish.MvcApplicationPartsAssemblyInfo.cache

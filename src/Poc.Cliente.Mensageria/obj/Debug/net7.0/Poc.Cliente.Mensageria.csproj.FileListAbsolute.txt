@@ -1,0 +1,5 @@
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Mensageria/obj/Debug/net7.0/Poc.Cliente.Mensageria.csproj.AssemblyReference.cache
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Mensageria/obj/Debug/net7.0/Poc.Cliente.Mensageria.GeneratedMSBuildEditorConfig.editorconfig
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Mensageria/obj/Debug/net7.0/Poc.Cliente.Mensageria.AssemblyInfoInputs.cache
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Mensageria/obj/Debug/net7.0/Poc.Cliente.Mensageria.AssemblyInfo.cs
+/home/mario/Projects/POC/poc-cliente/src/Poc.Cliente.Mensageria/obj/Debug/net7.0/Poc.Cliente.Mensageria.csproj.CoreCompileInputs.cache

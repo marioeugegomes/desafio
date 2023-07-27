@@ -7,5 +7,5 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
-build_property.RootNamespace = Poc.Cliente.UnitTests
-build_property.ProjectDir = /home/mario/Projects/POC/desafio/tests/Unit/
+build_property.RootNamespace = Poc.Cliente.Mensageria
+build_property.ProjectDir = /home/mario/Projects/POC/desafio/src/Poc.Cliente.Mensageria/
