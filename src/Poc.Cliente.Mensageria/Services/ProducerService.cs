@@ -66,49 +66,56 @@ namespace Poc.Cliente.Mensageria.Services
             }
         }
 
-       public static void GettingMessageViaSubscription()
+        public static void GettingMessageViaSubscription()
         {
 
-            Task listener = Task.Factory.StartNew(() =>
-            {
-                var topicClient = new TopicClient(_configuracoesPoc.Mensageria_ConnectionString, _configuracoesPoc.MensageriaTopic);
+            var subscriptionClient = SubscriptionClient.CreateFromConnectionString
+                        (
+                            _configuracoesPoc.Mensageria_ConnectionString,
+                            _configuracoesPoc.MensageriaTopic,
+                            _configuracoesPoc.MensageriaSubscription,
+                            ReceiveMode.PeekLock
+                        );
 
-                topicClient.OnMessageAsync((message) =>
-                {
-                    try
-                    {
-                        List<MensagemTopico> transactions = JsonConvert.DeserializeObject<MensagemTopico>(m.GetBody<string>());
+                var onMessageOptions = new OnMessageOptions();
+                onMessageOptions.ExceptionReceived += OnMessageError;
 
-                        transactions.ForEach( item => {
-                            Account user = _accountRepository.find(account => account.document = item.document);
-                            if (!user) {
-                                throw Exception("Cliente não encontrado");
-                            }
+                subscriptionClient.OnMessageAsync(OnMessageReceived, onMessageOptions);
 
-                            Transaction transaction = new Transaction {
-                                type = item.type,
-                                payment = item.payment,
-                                value = item.value,
-                                created = item.date,
-                                date_create = new Date(),
-                                account = user
-                            };
-
-                            _repository.Save(transaction);
-                        });
-
-                        message.Complete();
-                    }
-                    catch (Exception ex)
-                    {
-                        message.Abandon();
-                    }
-
-                }, options);
-
-                CompletedResetEvent.WaitOne();
-            });
+                Console.ReadKey();
         }
+
+    private static void OnMessageError(object sender, ExceptionReceivedEventArgs e)
+    {
+        if (e != null && e.Exception != null)
+        {
+            Console.WriteLine("Hey, there's an error!" + e.Exception.Message + "\r\n\r\n");
+        }
+    }
+
+    private static async Task OnMessageReceived(BrokeredMessage arg)
+    {
+        List<MensagemTopico> transactions = JsonConvert.DeserializeObject<MensagemTopico>(m.GetBody<string>());
+
+        transactions.ForEach( item => {
+            Account user = _accountRepository.find(account => account.document = item.document);
+            if (!user) {
+                throw Exception("Cliente não encontrado");
+            }
+
+            Transaction transaction = new Transaction {
+                type = item.type,
+                payment = item.payment,
+                value = item.value,
+                created = item.date,
+                date_create = new Date(),
+                account = user
+            };
+
+            _repository.Save(transaction);
+        });
+        await arg.CompleteAsync();
+    }
 
         public async Task<bool> TopicoExiste()
         {

@@ -24,7 +24,7 @@ public class PublishAccountController : ControllerBase
     public async Task<ActionResult> Publish(string tenant, [FromBody] Transaction transaction)
     {
         try {
-            var message = JsonConvert.Serialize(transaction);
+            var message = JsonConvert.SerializeObject(transaction);
             await _service.EnviarMensagem(message, tenant);
 
             return Ok(true);
